@@ -36,7 +36,7 @@ async def summarise(file: UploadFile = File(...)):
         n_calls = round(n_tokens / CONTEXT_WINDOW)
 
         if n_calls >= 5:
-            logger.info("This may take a while, going to run {n_calls} map jobs")
+            logger.info(f"This may take a while, going to run {n_calls} map jobs")
 
         chain = map_reduce_chain
         docs = [
