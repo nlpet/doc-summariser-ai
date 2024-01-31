@@ -4,7 +4,7 @@ This API provides AI generated summaries of documents. It uses langchain and Ope
 
 ### Prerequisites
 
-Before you begin, make sure you are in a Python virtual environment. This app has been tested with Python version 3.11.
+Before you begin, make sure you are in a Python virtual environment. This app has been tested with Python version 3.9 and above.
 
 The app requires an `OPENAI_API_KEY` to be present in the `.env` file.
 
