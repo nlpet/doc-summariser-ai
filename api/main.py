@@ -48,8 +48,12 @@ async def summarise(file: UploadFile = File(...)):
         chain = stuff_chain
         docs = [Document(page_content=content, metadata={"source": "local"})]
 
-    result = chain.invoke(docs)
-    logger.info(result["output_text"])
+    try:
+        result = chain.invoke(docs)
+        logger.info(result["output_text"])
+    except Exception as exc:
+        logger.error(f"Could not obtain summary: {exc}")
+        raise HTTPException(status_code=500, detail=str(exc))
 
     return {"filename": file.filename, "summary": result["output_text"]}
 
